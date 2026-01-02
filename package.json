@@ -1,0 +1,13 @@
+{
+  "name": "comento-frontend-a2z",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "sass src/scss/main.scss dist/style.css --no-source-map --style=compressed",
+    "watch:css": "sass src/scss/main.scss dist/style.css --watch --no-source-map",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seongju | comento-frontend-a2z</title>
+  <meta name="description" content="Comento Week1 자기소개 페이지">
+  <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a class="brand" href="#home">
+        <span class="brand__dot"></span>
+        <span class="brand__name">Seongju</span>
+        <span class="brand__sub">comento · week1</span>
+      </a>
+
+      <nav class="nav">
+        <a class="nav__link" href="#about">소개</a>
+        <a class="nav__link" href="#projects">프로젝트</a>
+        <a class="nav__link" href="#links">링크</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn btn--icon" id="themeBtn" type="button">
+          <span class="btn__icon">☾</span>
+          <span class="btn__text">Theme</span>
+        </button>
+
+        <button class="btn btn--icon btn--ghost" id="menuBtn" type="button" aria-expanded="false">
+          <span class="btn__icon">≡</span>
+          <span class="btn__text">Menu</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mnav" id="mnav" hidden>
+      <div class="container mnav__inner">
+        <a class="mnav__link" href="#about">소개</a>
+        <a class="mnav__link" href="#projects">프로젝트</a>
+        <a class="mnav__link" href="#links">링크</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero__inner">
+        <div class="hero__left">
+          <p class="pill">Comento · Frontend A to Z · Week 1</p>
+
+          <h1 class="hero__title">
+            1주차 자기소개 페이지<br/>
+            <span class="grad">HTML · SCSS · JS</span>
+          </h1>
+
+          <p class="hero__desc">
+            AI/Computer Vision 쪽 공부하고 있는 학부생입니다.
+            백엔드/ML도 같이 만져보면서, 만든 것들은 GitHub랑 Velog에 쌓아두는 편이에요.
+          </p>
+
+          <div class="hero__cta">
+            <a class="cta cta--primary" href="#projects">Project</a>
+            <a class="cta" href="https://github.com/Lova-clover" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="cta" href="https://velog.io/@lova-clover/posts" target="_blank" rel="noreferrer">Velog</a>
+          </div>
+        </div>
+
+        <aside class="sidecard">
+          <div class="profile">
+            <div class="avatar">SJ</div>
+            <div class="profile__meta">
+              <div class="profile__name">Seongju (Lova-clover)</div>
+              <div class="profile__sub">Yonsei Univ. Mirae · Software</div>
+            </div>
+          </div>
+
+          <div class="sep"></div>
+
+          <h2 class="sidecard__title">이번 주차 체크</h2>
+          <ul class="check">
+            <li>360 / 768 / 1024 반응형</li>
+            <li>Sticky 헤더 + Hover</li>
+            <li>테마 변경 + 모바일 메뉴 토글</li>
+            <li>SCSS 컴파일해서 CSS 생성</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">소개</h2>
+        </div>
+
+        <div class="grid grid--2">
+          <article class="card hover">
+            <h3 class="card__title">요즘 관심사</h3>
+            <ul class="bullets">
+              <li>AI / Computer Vision 실습 & 실험</li>
+              <li>백엔드/ML 같이 붙는 사이드 프로젝트</li>
+              <li>환경 세팅/구조 정리하고 기록 남기기</li>
+            </ul>
+          </article>
+
+          <article class="card hover">
+            <h3 class="card__title">이번 과제에서 한 것</h3>
+            <ul class="bullets">
+              <li>미디어쿼리로 360/768/1024 대응</li>
+              <li>헤더는 sticky로 고정 + 링크 호버</li>
+              <li>테마는 LocalStorage 저장, 메뉴는 토글</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">프로젝트</h2>
+          <p class="section__sub">GitHub에 핀해둔 것들 위주로만 가져왔습니다.</p>
+        </div>
+
+        <div class="cards">
+          <article class="pcard hover">
+            <div class="pcard__top">
+              <h3 class="pcard__name">DevHistory</h3>
+              <span class="pcard__pill">Python</span>
+            </div>
+            <p class="pcard__desc">개발 활동을 모아서 정리/기록하는 쪽으로 이것저것 실험해봤습니다.</p>
+            <div class="pcard__actions">
+              <a class="link" href="https://github.com/Lova-clover/DevHistory" target="_blank" rel="noreferrer">Repo →</a>
+            </div>
+          </article>
+
+          <article class="pcard hover">
+            <div class="pcard__top">
+              <h3 class="pcard__name">CheckmateAI</h3>
+              <span class="pcard__pill">TypeScript</span>
+            </div>
+            <p class="pcard__desc">Stockfish랑 퍼즐 데이터를 붙여서 로컬 체스 연습용으로 만들었습니다.</p>
+            <div class="pcard__actions">
+              <a class="link" href="https://github.com/Lova-clover/CheckmateAI" target="_blank" rel="noreferrer">Repo →</a>
+            </div>
+          </article>
+
+          <article class="pcard hover">
+            <div class="pcard__top">
+              <h3 class="pcard__name">AnemiaDetection_web</h3>
+              <span class="pcard__pill">Streamlit</span>
+            </div>
+            <p class="pcard__desc">결막 이미지 기반 빈혈 예측 웹앱 프로토타입입니다.</p>
+            <div class="pcard__actions">
+              <a class="link" href="https://github.com/Lova-clover/AnemiaDetection_web" target="_blank" rel="noreferrer">Repo →</a>
+            </div>
+          </article>
+
+          <article class="pcard hover">
+            <div class="pcard__top">
+              <h3 class="pcard__name">FreshGuard</h3>
+              <span class="pcard__pill">YOLO · CNN</span>
+            </div>
+            <p class="pcard__desc">식재료 신선도 판별을 목표로 파이프라인을 만들어본 프로젝트입니다.</p>
+            <div class="pcard__actions">
+              <a class="link" href="https://github.com/Lova-clover/FreshGuard" target="_blank" rel="noreferrer">Repo →</a>
+            </div>
+          </article>
+
+          <article class="pcard hover">
+            <div class="pcard__top">
+              <h3 class="pcard__name">Path-Planning</h3>
+              <span class="pcard__pill">Python</span>
+            </div>
+            <p class="pcard__desc">로봇 경로계획 알고리즘을 구현하고 시각화해둔 저장소입니다.</p>
+            <div class="pcard__actions">
+              <a class="link" href="https://github.com/Lova-clover/Path-Planning" target="_blank" rel="noreferrer">Repo →</a>
+            </div>
+          </article>
+
+          <article class="pcard hover">
+            <div class="pcard__top">
+              <h3 class="pcard__name">RoboEscape-Path-Planning</h3>
+              <span class="pcard__pill">Python</span>
+            </div>
+            <p class="pcard__desc">경로계획을 “적 AI”로 보여주는 교육용 느낌의 게임 실험입니다.</p>
+            <div class="pcard__actions">
+              <a class="link" href="https://github.com/Lova-clover/RoboEscape-Path-Planning" target="_blank" rel="noreferrer">Repo →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="container">
+        <div class="section__head">
+          <h2 class="section__title">링크</h2>
+        </div>
+
+        <div class="biglinks">
+          <a class="biglink hover" href="https://github.com/Lova-clover" target="_blank" rel="noreferrer">
+            <div class="biglink__k">GitHub</div>
+            <div class="biglink__v">github.com/Lova-clover</div>
+          </a>
+          <a class="biglink hover" href="https://velog.io/@lova-clover/posts" target="_blank" rel="noreferrer">
+            <div class="biglink__k">Velog</div>
+            <div class="biglink__v">velog.io/@lova-clover/posts</div>
+          </a>
+        </div>
+
+        <footer class="footer">
+          <p>© <span id="year"></span> Seongju · comento week1</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/main.js" defer></script>
+</body>
+</html>
