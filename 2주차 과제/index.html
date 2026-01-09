@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>2주차 과제 - 자판기 UI</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <header class="page">
+    <h1 class="page__title">2주차 과제: 자판기</h1>
+  </header>
+
+  <main id="main" class="stage">
+    <section class="vender" aria-label="음료수 자판기(화면만)">
+      <!-- 진열창 -->
+      <section class="window" aria-label="음료 진열창">
+        <div class="window__shine" aria-hidden="true"></div>
+
+        <div class="shelf" aria-label="1단 선반">
+          <div class="shelf__cans" role="list" aria-label="1단 음료">
+            <div class="can can--red" role="listitem" aria-label="음료 1"></div>
+            <div class="can can--red" role="listitem" aria-label="음료 2"></div>
+            <div class="can can--red" role="listitem" aria-label="음료 3"></div>
+            <div class="can can--orange" role="listitem" aria-label="음료 4"></div>
+            <div class="can can--orange" role="listitem" aria-label="음료 5"></div>
+            <div class="can can--yellow" role="listitem" aria-label="음료 6"></div>
+            <div class="can can--yellow" role="listitem" aria-label="음료 7"></div>
+          </div>
+          <div class="shelf__bar" aria-hidden="true">
+            <span class="sel"></span><span class="sel"></span><span class="sel"></span>
+            <span class="sel"></span><span class="sel"></span><span class="sel"></span>
+            <span class="sel"></span>
+          </div>
+        </div>
+
+        <div class="shelf" aria-label="2단 선반">
+          <div class="shelf__cans" role="list" aria-label="2단 음료">
+            <div class="can can--mint" role="listitem" aria-label="음료 8"></div>
+            <div class="can can--mint" role="listitem" aria-label="음료 9"></div>
+            <div class="can can--blue" role="listitem" aria-label="음료 10"></div>
+            <div class="can can--blue" role="listitem" aria-label="음료 11"></div>
+            <div class="can can--blue" role="listitem" aria-label="음료 12"></div>
+            <div class="can can--navy" role="listitem" aria-label="음료 13"></div>
+            <div class="can can--navy" role="listitem" aria-label="음료 14"></div>
+          </div>
+          <div class="shelf__bar" aria-hidden="true">
+            <span class="sel"></span><span class="sel"></span><span class="sel"></span>
+            <span class="sel"></span><span class="sel"></span><span class="sel"></span>
+            <span class="sel"></span>
+          </div>
+        </div>
+
+        <div class="shelf shelf--last" aria-label="3단 선반">
+          <div class="shelf__cans" role="list" aria-label="3단 음료">
+            <div class="can can--purple" role="listitem" aria-label="음료 15"></div>
+            <div class="can can--purple" role="listitem" aria-label="음료 16"></div>
+            <div class="can can--black" role="listitem" aria-label="음료 17"></div>
+            <div class="can can--black" role="listitem" aria-label="음료 18"></div>
+            <div class="can can--green" role="listitem" aria-label="음료 19"></div>
+            <div class="can can--green" role="listitem" aria-label="음료 20"></div>
+            <div class="can can--green" role="listitem" aria-label="음료 21"></div>
+          </div>
+          <div class="shelf__bar" aria-hidden="true">
+            <span class="sel"></span><span class="sel"></span><span class="sel"></span>
+            <span class="sel"></span><span class="sel"></span><span class="sel"></span>
+            <span class="sel"></span>
+          </div>
+        </div>
+
+        <div class="window__shadow" aria-hidden="true"></div>
+      </section>
+
+      <section class="mid" aria-label="광고/결제 영역">
+        <div class="ad" aria-label="광고 패널">
+          <div class="ad__screen">
+            <div class="smiley" aria-hidden="true">
+              <div class="smiley__face"></div>
+              <div class="smiley__eye smiley__eye--l"></div>
+              <div class="smiley__eye smiley__eye--r"></div>
+              <div class="smiley__mouth"></div>
+            </div>
+            <p class="ad__text">오늘도 시원하게 한 캔 어때요?</p>
+          </div>
+        </div>
+
+        <div class="pay" aria-label="결제 패널(화면용)">
+          <div class="pay__box" aria-hidden="true">
+            <div class="coinSlot">
+              <div class="coinSlot__circle"></div>
+              <div class="coinSlot__line"></div>
+            </div>
+            <div class="billSlot"></div>
+          </div>
+          <div class="pay__btn" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section class="tray" aria-label="배출구">
+        <div class="tray__inner" aria-hidden="true"></div>
+        <p class="tray__text">물건 나오는 곳</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
