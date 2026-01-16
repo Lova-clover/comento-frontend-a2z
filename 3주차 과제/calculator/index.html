@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week3 · 계산기</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <h1 class="title">Calculator</h1>
+      <p class="sub">버튼 입력 · '=' 계산 · C/CE 초기화 · History(추가 기능)</p>
+    </header>
+
+    <section class="grid">
+      <div class="calc" aria-label="계산기">
+        <div class="display" aria-live="polite">
+          <div class="expr" id="expr">0</div>
+          <div class="result" id="result"> </div>
+        </div>
+
+        <div class="pad" role="group" aria-label="키패드">
+          <button class="key key--fn" data-act="ce" type="button">CE</button>
+          <button class="key key--fn" data-act="c" type="button">C</button>
+          <button class="key key--op" data-token="(" type="button">(</button>
+          <button class="key key--op" data-token=")" type="button">)</button>
+
+          <button class="key" data-token="7" type="button">7</button>
+          <button class="key" data-token="8" type="button">8</button>
+          <button class="key" data-token="9" type="button">9</button>
+          <button class="key key--op" data-token="/" type="button">÷</button>
+
+          <button class="key" data-token="4" type="button">4</button>
+          <button class="key" data-token="5" type="button">5</button>
+          <button class="key" data-token="6" type="button">6</button>
+          <button class="key key--op" data-token="*" type="button">×</button>
+
+          <button class="key" data-token="1" type="button">1</button>
+          <button class="key" data-token="2" type="button">2</button>
+          <button class="key" data-token="3" type="button">3</button>
+          <button class="key key--op" data-token="-" type="button">−</button>
+
+          <button class="key key--wide" data-token="0" type="button">0</button>
+          <button class="key" data-token="." type="button">.</button>
+          <button class="key key--op" data-token="+" type="button">+</button>
+
+          <button class="key key--eq" data-act="eq" type="button">=</button>
+        </div>
+
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      </div>
+
+      <aside class="history" aria-label="계산 기록">
+        <div class="history__head">
+          <h2 class="history__title">History</h2>
+          <button class="btn" id="clearHistory" type="button">기록 삭제</button>
+        </div>
+        <p class="history__sub">최근 10개 계산을 저장합니다. 항목을 클릭하면 식이 다시 입력됩니다.</p>
+        <ol class="history__list" id="historyList"></ol>
+      </aside>
+    </section>
+
+    <section class="note">
+      <details>
+        <summary>키보드 입력 지원</summary>
+        <ul>
+          <li><kbd>0</kbd>~<kbd>9</kbd>, <kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd>, <kbd>(</kbd> <kbd>)</kbd>, <kbd>.</kbd></li>
+          <li><kbd>Enter</kbd> : 계산, <kbd>Backspace</kbd> : CE, <kbd>Esc</kbd> : C</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week3 · 시계(배터리/알람)</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <h1 class="title">Digital Clock</h1>
+      <p class="sub">배터리 · 알람(최대 3개) · 스누즈(추가 기능)</p>
+    </header>
+
+    <section class="device" aria-label="시계 디바이스">
+      <div class="device__bar">
+        <div class="battery" aria-label="배터리">
+          <span class="battery__label">배터리</span>
+          <div class="battery__meter" aria-hidden="true">
+            <div class="battery__fill" id="batteryFill"></div>
+          </div>
+          <span class="battery__pct" id="batteryPct">100%</span>
+          <button class="btn btn--ghost" id="chargeBtn" type="button" title="배터리 100%로 충전 (추가 기능 아님: 테스트용)">
+            충전
+          </button>
+        </div>
+      </div>
+
+      <div class="device__body">
+        <div class="panel">
+          <div class="panel__title">시간</div>
+
+          <div class="clock" id="clockWrap" aria-live="polite">
+            <div class="clock__date" id="dateText">0000-00-00</div>
+            <div class="clock__time" id="timeText">00:00:00</div>
+            <div class="clock__full" id="fullText">0000-00-00 00:00:00</div>
+          </div>
+
+          <div class="hint" id="deadHint" hidden>
+            배터리가 0%라서 화면이 꺼졌습니다.
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel__title">알람 현황</div>
+          <div class="status" id="alarmStatus">
+            <div class="status__row">
+              <span class="k">등록</span><span class="v" id="alarmCount">0 / 3</span>
+            </div>
+            <div class="status__row">
+              <span class="k">다음 알람</span><span class="v" id="nextAlarm">-</span>
+            </div>
+            <div class="status__row">
+              <span class="k">상태</span><span class="v" id="alarmState">대기</span>
+            </div>
+          </div>
+
+          <ol class="alarms" id="alarmList" aria-label="알람 목록"></ol>
+        </div>
+      </div>
+
+      <div class="device__footer">
+        <div class="alarmForm" aria-label="알람 추가">
+          <span class="alarmForm__label">알람</span>
+
+          <label class="field">
+            <span class="field__label">시</span>
+            <input id="hInput" type="number" min="0" max="23" value="7" inputmode="numeric" />
+          </label>
+
+          <label class="field">
+            <span class="field__label">분</span>
+            <input id="mInput" type="number" min="0" max="59" value="30" inputmode="numeric" />
+          </label>
+
+          <label class="field">
+            <span class="field__label">초</span>
+            <input id="sInput" type="number" min="0" max="59" value="0" inputmode="numeric" />
+          </label>
+
+          <button class="btn btn--primary" id="addBtn" type="button">추가</button>
+          <button class="btn" id="clearBtn" type="button">전체 삭제</button>
+
+          <span class="alarmForm__note" id="toast" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="note">
+      <details>
+        <summary>키보드 단축키</summary>
+        <ul>
+          <li><kbd>Enter</kbd> : 알람 추가</li>
+          <li><kbd>Esc</kbd> : 울리는 알람 닫기(끄기)</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- 알람 모달 -->
+    <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="알람">
+      <div class="modal__backdrop" data-close="true"></div>
+      <div class="modal__card">
+        <div class="modal__title">⏰ 알람</div>
+        <p class="modal__desc" id="modalDesc">알람이 울립니다.</p>
+        <div class="modal__actions">
+          <button class="btn btn--primary" id="stopBtn" type="button">끄기</button>
+          <button class="btn" id="snoozeBtn" type="button">5분 스누즈</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
