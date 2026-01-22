@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week4 Project#1 | To-Do-List</title>
+  <meta name="description" content="4주차 Project#1 - 일정 추가/삭제 To-Do-List (LocalStorage)" />
+
+  <!-- Font: Pretendard -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <div class="brand" aria-label="프로젝트 제목">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <div>
+          <div class="brand__title">To-Do-List</div>
+          <div class="brand__sub">Week4 Project#1 · 일정 추가/삭제</div>
+        </div>
+      </div>
+
+      <div class="header__actions">
+        <button class="btn btn--primary" type="button" id="btnOpenAdd">
+          <span class="icon" aria-hidden="true">＋</span>
+          일정 추가
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <div class="container">
+      <section class="panel" aria-label="상태 및 필터">
+        <div class="panel__row">
+          <div class="stats" role="status" aria-live="polite">
+            <div class="stat">
+              <div class="stat__k">전체</div>
+              <div class="stat__v" id="statAll">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat__k">오늘</div>
+              <div class="stat__v" id="statToday">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat__k">지난 일정</div>
+              <div class="stat__v" id="statPast">0</div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <label class="field field--search">
+              <span class="field__label">검색</span>
+              <input class="input" id="q" type="search" placeholder="제목/메모 검색" autocomplete="off" />
+            </label>
+
+            <label class="field">
+              <span class="field__label">필터</span>
+              <select class="select" id="filter">
+                <option value="all">전체</option>
+                <option value="today">오늘</option>
+                <option value="upcoming">다가오는 일정</option>
+                <option value="past">지난 일정</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field__label">정렬</span>
+              <select class="select" id="sort">
+                <option value="date_asc">날짜 오름차순</option>
+                <option value="date_desc">날짜 내림차순</option>
+                <option value="created_desc">최근 추가 순</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel__row panel__row--end">
+          <button class="btn btn--danger" type="button" id="btnClearAll" title="모든 일정 삭제">
+            전체 삭제
+          </button>
+        </div>
+      </section>
+
+      <section class="list" aria-label="일정 목록">
+        <div class="list__head">
+          <h2 class="h2">일정 목록</h2>
+          <div class="muted" id="resultMeta">0개</div>
+        </div>
+
+        <div class="cards" id="cards"></div>
+
+        <div class="empty" id="empty" hidden>
+          <div class="empty__emoji" aria-hidden="true">📅</div>
+          <div class="empty__title">아직 일정이 없습니다.</div>
+          <div class="empty__desc">오른쪽 위 <b>일정 추가</b>로 첫 일정을 등록하세요.</div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="muted">LocalStorage 기반 · 새로고침해도 데이터 유지</div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Add Dialog -->
+  <dialog class="dialog" id="dlgAdd" aria-label="일정 추가 다이얼로그">
+    <form class="dialog__card" id="addForm" method="dialog" novalidate>
+      <div class="dialog__head">
+        <div>
+          <div class="dialog__title">일정 추가</div>
+          <div class="dialog__sub">필수: 제목/날짜</div>
+        </div>
+        <button class="btn btn--ghost" type="button" id="btnCloseAdd" aria-label="닫기">✕</button>
+      </div>
+
+      <div class="grid">
+        <label class="field">
+          <span class="field__label">제목 <span class="req">*</span></span>
+          <input class="input" name="title" id="title" type="text" placeholder="예: 팀 미팅" maxlength="40" required />
+          <small class="help" id="helpTitle">1~40자</small>
+        </label>
+
+        <div class="grid grid--2">
+          <label class="field">
+            <span class="field__label">날짜 <span class="req">*</span></span>
+            <input class="input" name="date" id="date" type="date" required />
+          </label>
+
+          <label class="field">
+            <span class="field__label">시간</span>
+            <input class="input" name="time" id="time" type="time" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span class="field__label">메모</span>
+          <textarea class="textarea" name="memo" id="memo" rows="4" placeholder="추가 메모 (선택)" maxlength="160"></textarea>
+          <small class="help">0~160자</small>
+        </label>
+
+        <div class="alert" id="formError" hidden role="alert"></div>
+      </div>
+
+      <div class="dialog__actions">
+        <button class="btn btn--ghost" type="button" id="btnCancelAdd">취소</button>
+        <button class="btn btn--primary" type="submit">추가</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

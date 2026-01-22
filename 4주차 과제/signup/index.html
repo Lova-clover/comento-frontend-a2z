@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week4 Project#2 | 회원가입</title>
+  <meta name="description" content="4주차 Project#2 - 회원가입 (아이디 중복체크 + 비밀번호 규칙)" />
+
+  <!-- Font: Pretendard -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <div class="brand" aria-label="프로젝트 제목">
+        <span class="brand__dot" aria-hidden="true"></span>
+        <div>
+          <div class="brand__title">회원가입</div>
+          <div class="brand__sub">Week4 Project#2 · ID 중복체크 · 비밀번호 규칙</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <div class="container">
+      <section class="grid">
+        <div class="card">
+          <div class="card__head">
+            <h1 class="h1">계정 생성</h1>
+            <p class="muted">이 과제는 프론트엔드 단독 예제이며, 가입 정보는 브라우저 LocalStorage에 저장됩니다.</p>
+          </div>
+
+          <form id="form" novalidate>
+            <div class="field">
+              <label class="label" for="name">이름</label>
+              <input class="input" id="name" name="name" type="text" placeholder="예: 한성주" maxlength="20" required />
+              <small class="help">1~20자</small>
+            </div>
+
+            <div class="field">
+              <label class="label" for="username">아이디</label>
+              <div class="row">
+                <input class="input" id="username" name="username" type="text" placeholder="영문/숫자/._ 4~16자" autocapitalize="off" autocomplete="off" spellcheck="false" required />
+                <button class="btn btn--primary" id="btnCheck" type="button">중복확인</button>
+              </div>
+              <div class="hint" id="idHint" role="status" aria-live="polite"></div>
+              <small class="help">규칙: 4~16자, 영문 시작, 영문/숫자/._ 만 허용</small>
+            </div>
+
+            <div class="field">
+              <label class="label" for="password">비밀번호</label>
+              <div class="row">
+                <input class="input" id="password" name="password" type="password" placeholder="8~20자" autocomplete="new-password" required />
+                <button class="btn btn--ghost" id="btnPw" type="button" aria-label="비밀번호 표시 전환">보기</button>
+              </div>
+
+              <div class="rules" aria-label="비밀번호 규칙 체크리스트">
+                <div class="rule" id="rLen"><span class="dot" aria-hidden="true"></span> 8~20자</div>
+                <div class="rule" id="rMix"><span class="dot" aria-hidden="true"></span> 영문 + 숫자 포함</div>
+                <div class="rule" id="rSpec"><span class="dot" aria-hidden="true"></span> 특수문자 1개 이상</div>
+                <div class="rule" id="rSpace"><span class="dot" aria-hidden="true"></span> 공백 금지</div>
+                <div class="rule" id="rRepeat"><span class="dot" aria-hidden="true"></span> 같은 문자 3회 연속 금지</div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="password2">비밀번호 확인</label>
+              <input class="input" id="password2" name="password2" type="password" placeholder="비밀번호 재입력" autocomplete="new-password" required />
+              <div class="hint" id="pwHint" role="status" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="email">이메일 (선택)</label>
+              <input class="input" id="email" name="email" type="email" placeholder="example@email.com" autocomplete="email" />
+            </div>
+
+            <div class="alert" id="formMsg" hidden role="alert"></div>
+
+            <div class="actions">
+              <button class="btn" type="reset" id="btnReset">초기화</button>
+              <button class="btn btn--primary" type="submit">가입하기</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="side">
+          <div class="side__card">
+            <div class="side__title">테스트 방법</div>
+            <ol class="side__list">
+              <li>아이디 입력 후 <b>중복확인</b>을 먼저 수행</li>
+              <li>비밀번호 규칙이 모두 만족되면 점이 초록색으로 변함</li>
+              <li>가입 완료 후 같은 아이디로 다시 중복확인하면 <b>중복</b> 처리</li>
+            </ol>
+          </div>
+
+          <div class="side__card">
+            <div class="side__title">저장소 안내</div>
+            <div class="muted">LocalStorage 키: <code>week4_users_v1</code></div>
+            <div class="muted">비밀번호는 브라우저 내 SHA-256 해시(가능한 환경에서)로 저장합니다.</div>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="footer">
+        <div class="muted">FR1/FR2 충족 · 프론트엔드 단독 구현</div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
